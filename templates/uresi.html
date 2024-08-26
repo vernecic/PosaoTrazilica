@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>izmjena posla</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='styles.css') }}"
+    />
+</head>
+<body>
+    <div class="container">
+        <h1>Izmjena podataka</h1>
+        <form action="{{ url_for('spremi_promjene', posao_id=posal.id) }}" method="POST">
+            <div class="form-group">
+                <label for="pozicija">Posao</label>
+                <input type="text" name="pozicija" placeholder="Uredite poziciju" value="{{ posal.pozicija }}" required>
+            </div>
+            <div class="form-group">
+                <label for="poslodavac">Poslodavac</label>
+                <input type="text" name="poslodavac" placeholder="Uredite poslodavca" value="{{ posal.poslodavac }}" required>
+            </div>
+            <div class="form-group">
+                <label for="lokacija">Lokacija</label>
+                <input type="text" name="lokacija" placeholder="Uredite lokaciju" value="{{ posal.lokacija }}" required>
+            </div>
+            <div class="form-group">
+                <label for="placa">Plaća(€)</label>
+                <input type="number" name="placa" step="100" placeholder="Uredite plaću" value="{{ posal.placa }}" required>
+            </div>
+            <div class="form-group">
+                <label for="opis">Opis</label>
+                <input name="opis" placeholder="Uredite opis posla" value="{{ posal.opis }}" required>
+            </div>
+            <div class="form-group">
+                <label for="nudimo">Što nudimo</label>
+                <input name="nudimo" placeholder="Što poslodavac nudi" value="{{ posal.nudimo }}" required>
+            </div>
+            <div class="form-group">
+                <label for="trazimo">Što tražimo</label>
+                <input name="trazimo" placeholder="Što se traži od kandidata" value="{{ posal.trazimo }}" required>
+            </div>
+            <div style="text-align:center">
+                <input type="submit" value="Spremi promjene"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

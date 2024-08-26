@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h2>Aplikacija za upis poslova</h2>
+    <a class="edit-btn" href="{{ url_for('dodaj') }}">Dodaj posao</a>
+    <hr />
+    <div class="content">{% block content %} {% endblock %}</div>
+  </body>
+</html>

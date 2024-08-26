@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Popis poslova:</h2>
+<div class="popis">
+  {% for posal in posao %}
+  <div class="posal">
+    <p>Pozicija: {{ posal.pozicija }}</p>
+    <p>Poslodavac: {{ posal.poslodavac }}</p>
+    <p>Lokacija: {{ posal.lokacija }}</p>
+    <p>Placa: {{ posal.placa }}</p>
+    <p>Opis: {{ posal.opis }}</p>
+    <p>Nudimo: {{ posal.nudimo }}</p>
+    <p>Tražimo: {{ posal.trazimo}}</p>
+    <div class="dvabutona">
+      <div>
+        <form action="{{ url_for('edit', posao_id=posal.id) }}" method="GET">
+          <button type="submit" class="edit-btn">
+            <i class="fas fa-pen"></i>
+          </button>
+        </form>
+      </div>
+      <div>
+        <form
+          action="{{ url_for('delete', posao_id=posal.id) }}"
+          method="POST"
+          onsubmit="return confirm('Sigurno želite obrisati ovaj posao?');"
+        >
+          <button type="submit" class="delete-btn">
+            <i class="fas fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
